@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Message Board</title>
 
-<!-- css -->
+    <!-- css -->
 
     <link href="bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="vendor/angular-material.css">
     <link rel="stylesheet" href="vendor/angular-csp.css">
-    
 
-<!-- angular -->
+
+    <!-- angular -->
     <script src="vendor/angular.js"></script>
     <script src="vendor/angular-route.js"></script>
     <script src="vendor/angular-animate.min.js"></script>
@@ -22,23 +23,27 @@
     <script src="vendor/angular-material.js"></script>
     <script src="vendor/angular-messages.min.js"></script>
 
-<!-- client.js -->
+    <!-- client.js -->
     <script src="scripts/client.js"></script>
 
-<!-- controllers -->
+    <!-- controllers -->
 
-<script src="scripts/controllers/home.controller.js"></script>
-<script src="scripts/controllers/message.controller.js"></script>
+    <script src="scripts/controllers/home.controller.js"></script>
+    <script src="scripts/controllers/message.controller.js"></script>
 
 
-<!-- services -->
+    <!-- services -->
 
 
 </head>
+
 <body ng-app="MessageApp" layout="row">
     <h1>Message Board</h1>
-    <a class="nav-link"  href="#!">Home</a>
-    <a class="nav-link"  href="#!/messages">Message Board</a>
+    <ul>
+        <li><a class="nav-link" href="#!">Home</a></li>
+        <li><a class="nav-link" href="#!/messages">Message Board</a></li>
+    </ul>
     <ng-view></ng-view>
 </body>
+
 </html>
