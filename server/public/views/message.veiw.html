@@ -1,0 +1,35 @@
+<div id="messagePage">
+    <div>
+        <h2>{{vm.message}}</h2>
+        <span>Name</span>
+        <span>Message</span>
+    </div>
+    <div layout="row"></div>
+    <div layout="column">
+        <md-input-container id="enterEntry">
+            <label>Name</label>
+            <input type="text" ng-model="vm.message_board.name">
+        </md-input-container>
+    </div>
+    <div layout="row"></div>
+    <div layout="column">
+        <md-input-container id="enterEntry">
+            <label>Message</label>
+            <input type="text" ng-model="vm.message_board.message">
+        </md-input-container>
+    </div>
+    <button id="enterEntryIntoDatabase" ng-click="vm.postNewEntryToDom(vm.message_board)">Add</button>
+
+    <div>
+            <div class="float-left" ng-repeat="message_board in vm.message_board.list">
+                <p>{{{message_board.name}</p>
+                <p>{{{message_board.message}}</p>
+                <button ng-click="vm.removeEntry(message_board.id)">Delete</button>
+            </div>
+        </div>
+</div>
+
+</div>
+
+<hr />
+<pre>{{ vm | json }}</pre>

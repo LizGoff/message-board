@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+
+<!-- css -->
+
+    <link href="bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="vendor/angular-material.css">
+
+<!-- angular -->
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular.js"></script>
+    <script src="vendor/angular-route.js"></script>
+    <script src="vendor/angular-animate.min.js"></script>
+    <script src="vendor/angular-aria.min.js"></script>
+    <script src="vendor/angular-material.js"></script>
+    <script src="vendor/angular-messages.min.js"></script>
+
+<!-- client.js -->
+    <script src="scripts/client.js"></script>
+
+<!-- controllers -->
+
+<script src="scripts/controllers/home.controller.js"></script>
+<script src="scripts/controllers/message.controller.js"></script>
+
+
+<!-- services -->
+
+
+</head>
+<body ng-app="MessageApp" layout="row">
+    <h1>Message Board</h1>
+    <a class="nav-link"  href="#!">Home</a>
+    <a class="nav-link"  href="#!/message_board">Message Board</a>
+    <ng-view></ng-view>
+</body>
+</html>
