@@ -10,7 +10,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: '/views/home.view.html',
         controller: 'HomeController as vm'
     })
-    .when('/message_board', {
+    .when('/messages', {
         templateUrl: '/views/message.view.html',
         controller: 'MessageController as vm'
     })

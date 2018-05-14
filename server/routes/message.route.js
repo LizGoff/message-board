@@ -3,8 +3,8 @@ var router = express.Router();
 var pool = require('../modules/message.database');
 
 router.get('/', (req, res) => {
-        console.log('GET /message');
-        pool.query(`SELECT * FROM "message_board";`)
+        console.log('GET /messages');
+        pool.query(`SELECT * FROM "messages";`)
 
             .then((results) => {
                 console.log(results.rows)
@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
 // end route GET  
 
 router.post('/', (req, res) => {
-    console.log('POST /message', req.body);
-    const message_board = req.body;
-    const queryText = `INSERT INTO "message_board" ("name", "message") VALUES ($1, $2)`;
-    pool.query(queryText, [message_board.name, message_board.message])
+    console.log('POST /messages', req.body);
+    const messages = req.body;
+    const queryText = `INSERT INTO "messages" ("name", "message") VALUES ($1, $2)`;
+    pool.query(queryText, [messages.name, messages.message])
         .then(result => {
             res.sendStatus(201);
         })
@@ -35,10 +35,10 @@ router.post('/', (req, res) => {
 // end route POST
 
 router.delete('/:id', (req, res) => {
-    console.log('DELETE /message');
+    console.log('DELETE /messages');
     console.log(req.params);
     const deleteMessageEntries = req.params.id;
-    pool.query('DELETE FROM "message_board" WHERE "id"=$1;', [deleteMessageEntries])
+    pool.query('DELETE FROM "messages" WHERE "id"=$1;', [deleteMessageEntries])
         .then((result) => {
             res.sendStatus(200);
         })

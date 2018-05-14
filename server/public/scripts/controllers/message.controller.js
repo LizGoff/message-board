@@ -4,7 +4,7 @@ app.controller('MessageController', ['$http', function ($http) {
     var self = this;
     self.message = "I am the Message page!"
 
-    self.message_board = {
+    self.messages = {
         list: []
     };
 
@@ -14,14 +14,14 @@ app.controller('MessageController', ['$http', function ($http) {
 
         $http({
             method: 'GET',
-            url: '/message',
+            url: '/messages',
         })
             .then((response) => {
                 console.log(response);
-                self.message_board.list = response.data;
+                self.messages.list = response.data;
             })
             .catch((error) => {
-                console.log('error making message_board get request', error);
+                console.log('error making messages get request', error);
             })
     };
 
@@ -30,12 +30,12 @@ app.controller('MessageController', ['$http', function ($http) {
     self.postNewEntryToDom = function (entryToAddToDom) {
         $http({
             method: 'POST',
-            url: '/message',
+            url: '/messages',
             data: entryToAddToDom
         })
             .then((response) => {
-                self.message_board.name = '';
-                self.message_board.message = '';
+                self.messages.name = '';
+                self.messages.message = '';
                 console.log(response);
                 self.enterNewEntry();
             })
@@ -47,11 +47,11 @@ app.controller('MessageController', ['$http', function ($http) {
 
     // remove new entry
 
-    self.removeEntry = function (message_board) {
+    self.removeEntry = function (messages) {
         $http({
             method: 'DELETE',
-            url: `/message/${message_board.id}`,
-            data: message_board
+            url: `/messages/${messages.id}`,
+            data: messages
         }).then((response) => {
             self.enterNewEntry();
             console.log(response);
